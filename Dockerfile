@@ -4,4 +4,5 @@ FROM alpine:latest
 RUN apk add nmap --no-cache
 
 # Set entrypoint
-ENTRYPOINT ["nmap"]
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/entrypoint.sh"]
