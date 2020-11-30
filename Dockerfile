@@ -1,7 +1,10 @@
 FROM alpine:latest
 
-# update available packages
+# add nmap
 RUN apk add nmap --no-cache
+
+#add tini
+RUN apk add --no-cache tini
 
 # Set entrypoint
 COPY entrypoint.sh /usr/local/bin/
